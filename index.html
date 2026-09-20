@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RM Performance | Personal Trainer Rafael Menezes</title>
+<meta name="description" content="Consultoria personalizada online e presencial por Rafael Menezes: emagrecimento, ganho de massa muscular e performance atlética.">
+<meta name="theme-color" content="#121212">
+<meta property="og:title" content="RM Performance | Personal Trainer Rafael Menezes">
+<meta property="og:description" content="Consultoria personalizada para emagrecimento, ganho muscular e performance.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏋️</text></svg>">
+<script>document.documentElement.classList.add('js')</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#E50914',dark:'#B80710',bg:'#121212',card:'#1A1A1A'}},fontFamily:{sans:['Inter','sans-serif'],display:['Oswald','Inter','sans-serif']}}}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<style type="text/tailwindcss">
+@layer components{
+  .wrap{@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8}
+  .section{@apply border-b border-zinc-900 py-24}
+  .h2{@apply font-display text-4xl font-bold uppercase tracking-tight text-white sm:text-5xl}
+  .lead{@apply mt-4 max-w-2xl text-base text-zinc-400 sm:text-lg}
+  .btn{@apply inline-flex items-center justify-center gap-2 rounded-lg px-7 py-4 font-semibold tracking-wide transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white}
+  .btn-primary{@apply bg-brand text-white shadow-xl shadow-brand/20 hover:-translate-y-0.5 hover:bg-brand-dark}
+  .btn-ghost{@apply border border-zinc-800 bg-zinc-900/80 text-zinc-200 hover:bg-zinc-800 hover:text-white}
+  .card{@apply rounded-xl border border-zinc-800/80 bg-brand-card}
+  .lbl{@apply mb-2 block text-sm font-medium text-zinc-300}
+  .field{@apply w-full rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3 text-white placeholder-zinc-600 transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30 aria-[invalid=true]:border-brand}
+  .err{@apply mt-1 text-xs text-brand}
+  .tag{@apply absolute top-3 z-[2] rounded bg-black/70 backdrop-blur-md px-2.5 py-1 text-xs font-medium text-zinc-200 border border-zinc-800}
+}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#121212}::-webkit-scrollbar-thumb{background:#27272a;border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:#E50914}
+
+/* Estilos da Seção Hero com Parallax Dinâmico Fortalecido */
+.hero-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: -15%;
+  background-image: linear-gradient(to top, #121212 5%, rgba(18,18,18,0.4) 50%, rgba(18,18,18,0.7) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+}
+
+.hero-content-layer {
+  will-change: transform, opacity;
+}
+
+/* Faixa Parallax Inter-seções */
+.banner-parallax-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-parallax-bg {
+  position: absolute;
+  inset: -30%;
+  background-image: linear-gradient(rgba(18,18,18,0.75), rgba(18,18,18,0.75)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1920');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+}
+
+#nav.scrolled{background:rgba(18,18,18,.9);backdrop-filter:blur(16px);border-color:#27272a;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+
+/* Animações de Revelação */
+.js .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1);will-change:transform,opacity}
+.js .reveal[data-a=l]{transform:translateX(-60px)}
+.js .reveal[data-a=r]{transform:translateX(60px)}
+.js .reveal[data-a=s]{transform:scale(.90)}
+.js .reveal.in{opacity:1;transform:none}
+
+.reveal .h2::after{content:'';display:block;height:3px;width:0;margin-top:.75rem;background:#E50914;transition:width 1s .3s cubic-bezier(.22,1,.36,1)}
+.reveal.in .h2::after{width:4rem}
+.text-center .h2::after{margin-inline:auto}
+.line{display:block;overflow:hidden;padding-bottom:.08em}
+.line>span{display:block;will-change:transform}
+.js .line>span{transform:translateY(110%);transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.js .line:nth-child(2)>span{transition-delay:.2s}
+.js .hero-t.in .line>span{transform:none}
+.card{position:relative}
+.card::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(229,9,20,.15),transparent 60%)}
+.card:hover::before{opacity:1}
+#menu-d a[data-nav]{position:relative}
+#menu-d a[data-nav]::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:#E50914;transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+#menu-d a[data-nav].text-brand::after,#menu-d a[data-nav]:hover::after{transform:scaleX(1)}
+#top{opacity:0;transform:translateY(1rem);pointer-events:none}
+#top.show{opacity:1;transform:none;pointer-events:auto}
+dialog[open]{animation:pop .4s cubic-bezier(.22,1,.36,1)}@keyframes pop{from{opacity:0;transform:scale(.90)}}
+.flash{animation:fl 1.4s}@keyframes fl{0%,100%{box-shadow:0 0 0 0 rgba(229,9,20,0)}30%{box-shadow:0 0 0 5px rgba(229,9,20,.6)}}
+.ba{--p:50%;position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:.5rem}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none}
+.ba .before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--p);width:2px;background:#E50914;transform:translateX(-50%);box-shadow:0 0 12px #E50914;pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--p);z-index:2;display:grid;place-items:center;width:2.5rem;height:2.5rem;border-radius:9999px;background:#E50914;box-shadow:0 0 15px rgba(229,9,20,.8);transform:translate(-50%,-50%);pointer-events:none}
+.ba input{position:absolute;inset:0;z-index:3;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.ba:has(input:focus-visible) .knob{outline:2px solid #fff;outline-offset:2px}
+</style>
+</head>
+<body class="bg-brand-bg font-sans text-zinc-100 antialiased selection:bg-brand selection:text-white">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded focus:bg-brand focus:px-4 focus:py-2">Ir para o conteúdo</a>
+<div id="progress" class="fixed left-0 top-0 z-50 h-0.5 w-full origin-left scale-x-0 bg-brand"></div>
+
+<header id="nav" class="fixed inset-x-0 top-0 z-40 border-b border-transparent transition duration-300">
+  <div class="wrap flex h-20 items-center justify-between">
+    <a href="#hero" class="font-display text-xl font-bold tracking-wider text-white"><span class="text-2xl text-brand">RM</span> PERFORMANCE</a>
+    <nav id="menu-d" class="hidden items-center gap-8 text-sm font-medium text-zinc-300 md:flex" aria-label="Navegação Principal"></nav>
+    <button id="burger" class="p-2 text-xl text-zinc-200 md:hidden" aria-label="Alternar menu" aria-expanded="false" aria-controls="menu-m"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <nav id="menu-m" hidden class="border-t border-zinc-800 bg-brand-card px-6 py-4 text-center font-medium md:hidden"></nav>
+</header>
+
+<main id="main">
+<section id="hero" class="hero-wrapper relative flex min-h-screen items-center overflow-hidden pb-16 pt-28">
+  <div id="hero-bg" class="hero-bg-layer"></div>
+  <div id="hero-content" class="hero-content-layer wrap relative z-10 text-center w-full">
+    <h1 class="hero-t font-display text-5xl font-bold uppercase leading-tight tracking-tight sm:text-7xl md:text-8xl"><span class="line"><span>Construa sua melhor</span></span><span class="line"><span>versão com método.</span></span></h1>
+    <p class="reveal mx-auto mb-10 mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 sm:text-lg font-light" style="transition-delay:.4s">Consultoria de alta performance com <strong class="text-white font-medium">Rafael Menezes</strong>. Foco absoluto em estética avançada, força e longevidade.</p>
+    <div class="reveal flex flex-col items-center justify-center gap-4 sm:flex-row" style="transition-delay:.55s">
+      <a href="#contact" class="btn btn-primary w-full sm:w-auto">Agendar avaliação técnica</a>
+      <a href="#transformations" class="btn btn-ghost w-full sm:w-auto">Ver resultados reais</a>
+    </div>
+  </div>
+  <a href="#about" class="absolute inset-x-0 bottom-6 z-10 hidden text-center text-xl text-zinc-500 sm:block transition hover:text-white" aria-label="Rolar para baixo"><i class="fa-solid fa-chevron-down motion-safe:animate-bounce"></i></a>
+</section>
+
+<section id="about" class="section">
+  <div class="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <div class="reveal relative" data-a="l">
+      <div class="absolute -inset-2 rounded-2xl bg-gradient-to-r from-brand to-zinc-700 opacity-20 blur-xl"></div>
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1000" alt="Rafael Menezes, personal trainer" loading="lazy" class="relative w-full rounded-xl border border-zinc-800 object-cover shadow-2xl">
+    </div>
+    <div class="reveal space-y-6" data-a="r">
+      <h2 class="h2">Rafael Menezes</h2>
+      <p class="text-base leading-relaxed text-zinc-300 sm:text-lg">Profissional especializado em fisiologia aplicada e treinamento resistido. A minha abordagem prioriza a biomecânica correta, periodização científica e individualidade biológica para resultados consistentes e definitivos.</p>
+      <p class="leading-relaxed text-zinc-400">Esqueça treinos genéricos e achismos. Cada ciclo de treino é desenhado ao milímetro para otimizar a sua recuperação, ganho de massa ou queima de gordura.</p>
+      <div id="features" class="grid gap-4 pt-4 sm:grid-cols-2"></div>
+    </div>
+  </div>
+</section>
+
+<section id="transformations" class="section bg-zinc-950">
+  <div class="wrap">
+    <div class="reveal mb-16 text-center"><h2 class="h2">Evoluções de alunos</h2><p class="lead mx-auto">Arraste o cursor ou toque no ecrã para comparar o antes e depois de quem segue o método.</p></div>
+    <div id="results-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+  </div>
+</section>
+
+<section id="pricing" class="section">
+  <div class="wrap">
+    <div class="reveal mb-16 text-center"><h2 class="h2">Planos de Acompanhamento</h2><p class="lead mx-auto">Selecione o nível de suporte e direcionamento ideal para o seu momento atual.</p></div>
+    <div id="plans-grid" class="grid gap-8 md:grid-cols-3"></div>
+  </div>
+</section>
+
+<section id="banner-parallax" class="banner-parallax-wrapper relative border-y border-zinc-800 py-32 text-center overflow-hidden">
+  <div id="banner-bg" class="banner-parallax-bg"></div>
+  <div class="wrap relative z-10">
+    <h3 class="font-display text-3xl font-bold uppercase tracking-tight text-white sm:text-5xl lg:text-6xl max-w-4xl mx-auto leading-tight">
+      A disciplina constrói o que a motivação sozinha não consegue manter.
+    </h3>
+    <p class="mt-4 text-lg font-medium text-brand tracking-widest uppercase">Supere os seus limites todos os dias</p>
+  </div>
+</section>
+
+<section id="methodology" class="section bg-zinc-950">
+  <div class="wrap">
+    <div class="reveal mb-16 text-center">
+      <h2 class="h2">Os pilares da metodologia</h2>
+      <p class="lead mx-auto">Estrutura sólida construída sobre três frentes indispensáveis para a alta performance.</p>
+    </div>
+    <div id="pillars-grid" class="grid gap-8 md:grid-cols-3"></div>
+  </div>
+</section>
+
+<section id="faq" class="section">
+  <div class="wrap max-w-4xl">
+    <div class="reveal mb-16 text-center"><h2 class="h2">Dúvidas frequentes</h2></div>
+    <div id="faq-list" class="reveal space-y-4"></div>
+  </div>
+</section>
+
+<section id="contact" class="bg-zinc-950 py-24">
+  <div class="wrap grid gap-12 lg:grid-cols-2">
+    <div class="reveal" data-a="l">
+      <h2 class="h2">Inicie a sua consultoria</h2>
+      <p class="mb-8 mt-4 text-zinc-300 leading-relaxed">Preencha o formulário ao lado para uma análise preliminar do seu perfil. Retornarei o contacto em até 24 horas.</p>
+      <div id="contact-info" class="space-y-6"></div>
+    </div>
+    <form id="form" data-a="r" class="card reveal space-y-5 p-6 sm:p-8" novalidate>
+      <div><label class="lbl" for="name">Nome completo *</label><input class="field" id="name" name="name" required autocomplete="name" placeholder="O seu nome"><p class="err" hidden>Digite o seu nome.</p></div>
+      <div><label class="lbl" for="email">E-mail *</label><input class="field" type="email" id="email" name="email" required autocomplete="email" placeholder="seu@email.com"><p class="err" hidden>Digite um e-mail válido.</p></div>
+      <div><label class="lbl" for="goal">Objetivo principal *</label>
+        <select class="field" id="goal" name="goal" required>
+          <option value="" disabled selected>Selecione o seu objetivo</option>
+          <option>Emagrecimento & Definição</option><option>Hipertrofia & Massa Magra</option><option>Performance Atlética</option><option>Saúde & Mobilidade</option>
+        </select><p class="err" hidden>Selecione o seu objetivo principal.</p></div>
+      <div><label class="lbl" for="plan">Plano de interesse</label><select class="field" id="plan" name="plan"></select></div>
+      <div><label class="lbl" for="message">Mensagem ou histórico</label><textarea class="field" id="message" name="message" rows="4" placeholder="Conte brevemente sobre a sua rotina e experiência com treinos..."></textarea></div>
+      <button type="submit" class="btn btn-primary w-full py-4 text-base">Enviar aplicação profissional</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<dialog id="modal" class="m-auto w-[calc(100%-2rem)] max-w-md rounded-xl border border-zinc-800 bg-brand-card p-8 text-center text-zinc-100 backdrop:bg-black/80 backdrop:blur-sm">
+  <div class="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-full bg-emerald-500/10 text-2xl text-emerald-500 border border-emerald-500/20"><i class="fa-brands fa-whatsapp"></i></div>
+  <h3 class="font-display text-2xl font-bold uppercase text-white">Quase lá!</h3>
+  <p class="my-3 text-sm text-zinc-300 leading-relaxed">A sua aplicação foi estruturada com sucesso. Clique abaixo para enviar diretamente para o WhatsApp do treinador Rafael.</p>
+  <a id="wa-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-full">Enviar via WhatsApp</a>
+  <button id="close" class="mt-3 w-full py-2 text-xs font-medium text-zinc-400 hover:text-white">Fechar janela</button>
+</dialog>
+
+<button id="top" class="fixed bottom-24 right-6 z-40 grid h-12 w-12 place-items-center rounded-lg border border-zinc-800 bg-brand-card/90 text-zinc-300 transition duration-300 hover:border-brand hover:text-brand shadow-lg" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+<a id="wa-float" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 grid h-14 w-14 place-items-center rounded-full bg-emerald-500 text-2xl shadow-2xl transition duration-300 hover:scale-105 hover:bg-emerald-600 text-white" aria-label="Conversar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<footer class="bg-zinc-950 py-12 text-center text-xs text-zinc-500 border-t border-zinc-900">
+  <div class="wrap space-y-4">
+    <div class="flex justify-center gap-6 text-lg text-zinc-400">
+      <a href="#" class="transition hover:text-brand" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="transition hover:text-brand" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#" class="transition hover:text-brand" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+    <p>&copy; <span id="yr">2026</span> RM Performance | Rafael Menezes. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+// Inicialização Correta do Lenis Smooth Scroll com RequestAnimationFrame
+const lenis = new Lenis({ smoothWheel: true, lerp: 0.08 });
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+const CFG={wa:'5511987654321',phone:'(11) 98765-4321',email:'contato@rmperformance.fit'};
+const NAV=[['about','Sobre'],['transformations','Resultados'],['pricing','Planos'],['methodology','Método'],['faq','Dúvidas']];
+
+const FEATS=[['bullseye','Treino Sob Medida','Montado milimetricamente para a sua biomecânica e rotina.'],['utensils','Estratégia Nutricional','Direcionamento alimentar flexível e sustentável.'],['chart-line','Métricas de Carga','Controle rigoroso de progressão de volume e intensidade.'],['headset','Canal Exclusivo','Suporte contínuo via plataforma e WhatsApp.']];
+
+const RES=[['Marcos S.','-18kg e ganho de massa magra','16 semanas','photo-1583454110551-21f2fa2afe61','photo-1517838277536-f5f99be501cd'],['Elena R.','Recomposição corporal e definição','12 semanas','photo-1541534741688-6078c6bfb5c5','photo-1518611012118-696072aa579a'],['David K.','+6kg de massa magra','20 semanas','photo-1534367507873-d2d7e24c797f','photo-1507398941214-572c25f4b1dc']];
+
+const PLANS=[
+ ['Consultoria Online','Para treinar com autonomia em qualquer ginásio ou em casa.',149,['Treinos personalizados via app','Direcionamento de macronutrientes','Check-ins quinzenal em vídeo','Suporte contínuo via chat'],['Encontros presenciais']],
+ ['Híbrido Elite','Acompanhamento técnico online unido a sessões presenciais pontuais.',299,['Tudo da Consultoria Online','2 sessões presenciais por mês','Análise biomecânica avançada','Canal prioritário no WhatsApp','Guia de suplementação avançada'],[],1],
+ ['Personal Presencial','Atendimento exclusivo e dedicado para máxima velocidade de resultados.',499,['3 sessões presenciais por semana','Planejamento nutricional completo','Avaliações de composição corporal','Horários VIP garantidos','Suporte total e irrestrito'],[]]];
+
+const PILLARS=[
+  ['microscope','Biomecânica e Fisiologia','Planilhas estruturadas com base no seu nível de condicionamento, sem fórmulas genéricas.'],
+  ['sliders','Sobrecarga Progressiva','Controle rígido de variáveis para assegurar que o seu corpo esteja em constante adaptação e evolução.'],
+  ['comments','Feedback e Ajustes','Monitoramento constante da execução por vídeo para prevenir lesões e corrigir falhas de movimento.']
+];
+
+const FAQ=[['Em quanto tempo percebo os primeiros resultados?','Aumento de disposição e força ocorrem nas primeiras semanas. Mudanças estéticas visíveis consolidam-se entre a 4ª e 8ª semana com adesão correta ao plano.'],['Preciso treinar num ginásio de alto padrão?','Não. O programa é adaptado integralmente ao espaço que tem disponível, seja ginásio comercial, de condomínio ou treino em casa.'],['Como é realizado o suporte?','Todo o acompanhamento e tira-dúvidas é feito de forma próxima por canais diretos, garantindo que nunca fique sem direção.'],['Posso alterar o formato do plano depois?','Sim, tem total liberdade para migrar entre a consultoria online, híbrida ou presencial conforme a sua rotina mudar.']];
+
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const U=(id,w=800)=>`https://images.unsplash.com/${id}?auto=format&fit=crop&q=80&w=${w}`;
+document.addEventListener('error',e=>{const i=e.target;if(i.tagName==='IMG'&&!i.dataset.f){i.dataset.f=1;i.src='https://placehold.co/800x1000/1a1a1a/ffffff?text=RM+Performance'}},true);
+$('#yr').textContent=new Date().getFullYear();
+$('#wa-float').href=`https://wa.me/${CFG.wa}?text=${encodeURIComponent('Olá Rafael, gostaria de saber mais sobre a consultoria!')}`;
+
+$('#menu-d').innerHTML=NAV.map(([i,t])=>`<a href="#${i}" data-nav="${i}" class="transition hover:text-white">${t}</a>`).join('')+'<a href="#contact" class="btn btn-primary !px-5 !py-2.5 !text-sm">Começar agora</a>';
+$('#menu-m').innerHTML=NAV.map(([i,t])=>`<a href="#${i}" class="block py-3">${t}</a>`).join('')+'<a href="#contact" class="btn btn-primary mt-2 w-full">Começar agora</a>';
+
+$$('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const target = this.getAttribute('href');
+    if(target.length > 1 && $(target)) {
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: target==='#hero'?0:-70 });
+      if(!$('#menu-m').hidden) $('#burger').click();
+    }
+  });
+});
+
+$('#features').innerHTML=FEATS.map(([ic,t,d])=>`<div class="reveal flex gap-3 rounded-xl border border-zinc-800/80 bg-zinc-900/60 p-4"><i class="fa-solid fa-${ic} mt-1 text-lg text-brand"></i><div><h3 class="text-sm font-bold text-white">${t}</h3><p class="text-xs text-zinc-400 font-light">${d}</p></div></div>`).join('');
+
+$('#results-grid').innerHTML=RES.map(([n,g,w,a,b])=>`
+<article data-a="s" class="card reveal p-4 transition duration-300 hover:border-zinc-700">
+  <div class="ba mb-4">
+    <img src="${U(a)}" alt="${n} depois" loading="lazy">
+    <img class="before" src="${U(b)}" alt="${n} antes" loading="lazy">
+    <span class="tag left-3">Antes</span><span class="tag right-3">Depois</span>
+    <div class="bar"></div><div class="knob"><i class="fa-solid fa-arrows-left-right text-xs"></i></div>
+    <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois de ${n}">
+  </div>
+  <div class="flex items-center justify-between px-1"><div><h3 class="text-base font-bold text-white">${n}</h3><p class="text-xs font-medium text-brand">${g}</p></div><span class="rounded border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-300">${w}</span></div>
+</article>`).join('');
+$$('.ba input').forEach(i=>i.addEventListener('input',()=>i.parentElement.style.setProperty('--p',i.value+'%')));
+
+$('#plans-grid').innerHTML=PLANS.map(([n,d,p,f,x,pop])=>`
+<div data-a="s" class="card reveal relative flex flex-col justify-between p-8 ${pop?'!border-brand bg-gradient-to-b from-zinc-900 to-brand-card shadow-2xl shadow-brand/10 md:-my-2':'transition hover:border-zinc-700'}">
+  ${pop?'<span class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-brand px-4 py-1 text-xs font-bold tracking-wide">MAIS PROCURADO</span>':''}
+  <div>
+    <h3 class="font-display text-2xl font-bold uppercase text-white">${n}</h3>
+    <p class="mb-6 mt-2 text-sm text-zinc-400 font-light">${d}</p>
+    <p class="mb-6"><span class="text-5xl font-black text-white">R$${p}</span> <span class="text-sm text-zinc-500">/ mês</span></p>
+    <ul class="mb-8 space-y-3.5 text-sm text-zinc-300 font-light">
+      ${f.map(t=>`<li class="flex items-center"><i class="fa-solid fa-check mr-3 text-brand"></i>${t}</li>`).join('')}
+      ${x.map(t=>`<li class="flex items-center text-zinc-600"><i class="fa-solid fa-xmark mr-3"></i>${t}</li>`).join('')}
+    </ul>
+  </div>
+  <a href="#contact" data-plan="${n}" class="btn ${pop?'btn-primary':'btn-ghost'} w-full !text-sm">${pop?'Começar agora':'Escolher plano'}</a>
+</div>`).join('');
+
+$('#pillars-grid').innerHTML=PILLARS.map(([ic,t,d])=>`
+<div data-a="s" class="card reveal flex flex-col items-center p-8 text-center transition duration-300 hover:border-zinc-700">
+  <div class="mb-6 grid h-14 w-14 place-items-center rounded-xl border border-brand/30 bg-brand/10 text-2xl text-brand">
+    <i class="fa-solid fa-${ic}"></i>
+  </div>
+  <h3 class="font-display text-xl font-bold uppercase text-white mb-3 tracking-wide">${t}</h3>
+  <p class="text-sm leading-relaxed text-zinc-400 font-light">${d}</p>
+</div>`).join('');
+
+['#results-grid','#plans-grid','#pillars-grid','#features','#contact-info'].forEach(g=>$$(g+'>*').forEach((el,i)=>el.style.transitionDelay=i*100+'ms'));
+
+$('#faq-list').innerHTML=FAQ.map(([q,a])=>`
+<details name="faq" class="group card overflow-hidden">
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-base font-semibold text-white [&::-webkit-details-marker]:hidden">${q}<i class="fa-solid fa-chevron-down text-brand transition-transform duration-300 group-open:rotate-180"></i></summary>
+  <p class="border-t border-zinc-900 px-6 pb-6 pt-4 text-sm leading-relaxed text-zinc-400 font-light">${a}</p>
+</details>`).join('');
+
+$('#contact-info').innerHTML=[['envelope','E-mail',CFG.email,`mailto:${CFG.email}`],['phone','WhatsApp Profissional',CFG.phone,`https://wa.me/${CFG.wa}`],['location-dot','Atendimento','RM High Performance Center & Global Online','']].map(([ic,l,v,h])=>`
+<div class="reveal flex items-center gap-4"><span class="grid h-12 w-12 shrink-0 place-items-center rounded-lg border border-zinc-800 bg-zinc-900 text-brand"><i class="fa-solid fa-${ic}"></i></span><div><p class="text-xs font-medium text-zinc-500 uppercase tracking-wider">${l}</p>${h?`<a href="${h}" class="font-medium text-white hover:text-brand transition">${v}</a>`:`<p class="font-medium text-white">${v}</p>`}</div></div>`).join('');
+$('#plan').innerHTML='<option value="">Ainda não tenho a certeza</option>'+PLANS.map(p=>`<option>${p[0]}</option>`).join('');
+$$('[data-plan]').forEach(a=>a.addEventListener('click',()=>{const s=$('#plan');s.value=a.dataset.plan;s.classList.remove('flash');setTimeout(()=>s.classList.add('flash'),700)}));
+
+const bar=$('#progress'),nav=$('#nav'),topBtn=$('#top');
+const heroBg=$('#hero-bg'), heroContent=$('#hero-content'), heroSec=$('#hero');
+const bannerBg=$('#banner-bg'), bannerSec=$('#banner-parallax');
+let lastY=0;
+
+lenis.on('scroll', (e) => {
+  const y=e.scroll,h=document.documentElement;
+  
+  bar.style.transform=`scaleX(${y/((h.scrollHeight-h.clientHeight)||1)})`;
+  nav.classList.toggle('scrolled',y>20);
+  nav.style.transform=(y>lastY&&y>500&&$('#menu-m').hidden&&!nav.contains(document.activeElement))?'translateY(-100%)':'';
+  lastY=y;
+  topBtn.classList.toggle('show',y>900);
+
+  const isMobile = window.innerWidth < 768;
+
+  if(!isMobile){
+    if(heroSec){
+      const heroHeight = heroSec.offsetHeight;
+      if(y <= heroHeight){
+        heroBg.style.transform = `translate3d(0, ${y * 0.5}px, 0) scale(1.15)`;
+        heroContent.style.transform = `translate3d(0, -${y * 0.25}px, 0)`;
+        heroContent.style.opacity = Math.max(0, 1 - (y / (heroHeight * 0.75)));
+      }
+    }
+
+    if(bannerSec && bannerBg){
+      const rect = bannerSec.getBoundingClientRect();
+      const winH = window.innerHeight;
+      if(rect.top < winH && rect.bottom > 0){
+        const bannerCenter = rect.top + rect.height / 2;
+        const viewCenter = winH / 2;
+        const offset = (bannerCenter - viewCenter) * 0.4; 
+        bannerBg.style.transform = `translate3d(0, ${offset}px, 0)`;
+      }
+    }
+  } else if(isMobile && heroBg && heroContent){
+    heroBg.style.transform = 'none';
+    heroContent.style.transform = 'none';
+    heroContent.style.opacity = '1';
+    if(bannerBg) bannerBg.style.transform = 'none';
+  }
+});
+
+topBtn.onclick=()=>lenis.scrollTo(0);
+nav.addEventListener('focusin',()=>nav.style.transform='');
+
+const burger=$('#burger'),mm=$('#menu-m'); const setMenu=o=>{mm.hidden=!o;burger.setAttribute('aria-expanded',o);burger.firstElementChild.className='fa-solid fa-'+(o?'xmark':'bars')}; burger.onclick=()=>setMenu(mm.hidden); mm.addEventListener('click',e=>e.target.closest('a')&&setMenu(false)); const links=$$('[data-nav]');
+const spy=new IntersectionObserver(en=>en.forEach(e=>e.isIntersecting&&links.forEach(a=>a.classList.toggle('text-white',a.dataset.nav===e.target.id))),{rootMargin:'-45% 0px -50% 0px'});
+NAV.forEach(([id])=>spy.observe($('#'+id))); const io=new IntersectionObserver(en=>en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);setTimeout(()=>e.target.style.transitionDelay='',1500)}}),{threshold:.12}); $$('.reveal').forEach(el=>io.observe(el));
+
+const form=$('#form'),modal=$('#modal'); form.addEventListener('submit',e=>{   e.preventDefault();let ok=true;   $$('[required]',form).forEach(el=>{const bad=!el.checkValidity()||!el.value.trim();el.nextElementSibling.hidden=!bad;el.setAttribute('aria-invalid',bad);if(bad&&ok){el.focus();ok=false}});
+  if(!ok)return;
+  const d=Object.fromEntries(new FormData(form));
+  const msg=`Olá Rafael! O meu nome é ${d.name} (${d.email}).\nObjetivo: ${d.goal}${d.plan?`\nPlano: ${d.plan}`:''}${d.message?`\n\nMensagem: ${d.message}`:''}`;
+  $('#wa-link').href=`https://wa.me/${CFG.wa}?text=${encodeURIComponent(msg)}`;
+  modal.showModal();form.reset();
+});
+$('#close').onclick=()=>modal.close();
+modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
+
+form.addEventListener('input',e=>{const el=e.target,m=el.nextElementSibling;if(el.required&&m&&m.classList.contains('err')&&el.checkValidity()&&el.value.trim()){m.hidden=true;el.setAttribute('aria-invalid',false)}});
+
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.card');if(c){const b=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-b.left+'px');c.style.setProperty('--my',e.clientY-b.top+'px')}});
+
+const setP=(i,v)=>{i.value=v;i.parentElement.style.setProperty('--p',v+'%')};
+const peek=new IntersectionObserver(en=>en.forEach(e=>{if(!e.isIntersecting)return;peek.unobserve(e.target);
+  const i=$('input',e.target);let stop=0;['pointerdown','keydown'].forEach(ev=>i.addEventListener(ev,()=>stop=1,{once:true}));   setTimeout(()=>{const t0=performance.now();const f=t=>{if(stop)return;const k=Math.min((t-t0)/1800,1);setP(i,50+25*Math.sin(k*Math.PI*2));k<1&&requestAnimationFrame(f)};requestAnimationFrame(f)},500)}),{threshold:.6});$$('.ba').forEach(b=>peek.observe(b));
+
+requestAnimationFrame(()=>requestAnimationFrame(()=>$('.hero-t').classList.add('in')));
+</script>
+</body>
+</html>
